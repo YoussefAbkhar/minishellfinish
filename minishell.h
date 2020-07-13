@@ -6,7 +6,7 @@
 /*   By: yabakhar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/16 16:51:53 by yabakhar          #+#    #+#             */
-/*   Updated: 2019/11/06 03:50:31 by yabakhar         ###   ########.fr       */
+/*   Updated: 2020/07/11 17:14:19 by yabakhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,23 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include "libft/libft.h"
+# include <fcntl.h>
 # include <dirent.h>
 # define BUFF_SIZE 1500000
+
+
+typedef	struct		s_opt
+{
+	int		l;
+	int		n;
+	int		s;
+	int		e;
+	int		r;
+	int		i;
+	int		check;
+	int		debut;
+	int		fin;
+}					t_opt;
 
 typedef struct		s_suit
 {
@@ -42,6 +57,17 @@ typedef struct		s_adenv
 	int				j;
 }					t_adenv;
 
+
+typedef struct		s_exicfc
+{
+	char			*content;
+	// int 			count;
+	struct s_exicfc	*next;
+
+}					t_exicfc;
+
+
+
 typedef struct		s_env
 {
 	int				i;
@@ -52,12 +78,22 @@ typedef struct		s_env
 	char			*tmp2;
 }					t_env;
 
+
 typedef struct		s_mini
 {
 	t_node		*env;
 }					t_mini;
+typedef struct s_history
+{
+    char *content;
+    int content_len;
+    int len;
+    struct s_history *next;
+    struct s_history *prev;
+} t_history;
 
 void				ft_putstr4(char *s, char *s1, char *s2, char *s3);
+// t_his				*ft_getter_history(t_his *node);
 _Bool				ft_cd(char **holder, char *tmp);
 _Bool				ft_echo(char **holder);
 char				*ft_suit(t_node *list, char *str, int i);
@@ -95,4 +131,16 @@ int					ft_main(t_node *list);
 int					ft_suit_main(t_node *list, char **holder);
 int					ft_suit_main2(t_node *list, char **holder, char **str);
 int					ft_suit_main1(char **holder, char *str);
+void				parce_param_fc(char **hold);
+void				ft_open_editeur(t_node *list,char *str,char *str1);
+char *ft_getpath(void);
+void free_history_node(t_history *node);
+t_history *add_to_history(const char *str);
+void load_hsitory(const char *file);
+int				get_next_line(const int fd, char **line);
+t_history *ft_get_tail(t_history *history);
+int ft_isnumber(char *str);
+int fc_l(t_opt *opt,char **hold);
+void    parce_param_fc(char **hold);
+
 #endif

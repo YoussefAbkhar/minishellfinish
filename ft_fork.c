@@ -6,7 +6,7 @@
 /*   By: yabakhar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/11/03 20:49:10 by yabakhar          #+#    #+#             */
-/*   Updated: 2019/11/05 06:04:36 by yabakhar         ###   ########.fr       */
+/*   Updated: 2020/05/28 06:41:47 by yabakhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,15 @@ t_mini				*ft_getter(t_mini *node)
 	return (n);
 }
 
+// t_his				*ft_getter_history(t_his *node)
+// {
+// 	static	t_his	*n;
+
+// 	if (node)
+// 		n = node;
+// 	return (n);
+// }
+
 int					ft_suit_main(t_node *list, char **holder)
 {
 	char			*str;
@@ -105,7 +114,7 @@ int					ft_main(t_node *list)
 	{
 		buff[rd - 1] = '\0';
 		holder = ft_strspliti(buff);
-		if (ft_suit_main(list, holder) || ft_fork1(holder, list))
+		if (ft_suit_main(list, holder))
 		{
 			ft_delsplite(&holder);
 			return (1);
@@ -113,6 +122,5 @@ int					ft_main(t_node *list)
 		ft_fork(holder, list);
 		ft_delsplite(&holder);
 	}
-	ft_strclr(buff);
 	return (0);
 }

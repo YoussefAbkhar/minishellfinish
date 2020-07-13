@@ -6,13 +6,13 @@
 #    By: yabakhar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/16 19:55:13 by yabakhar          #+#    #+#              #
-#    Updated: 2019/11/06 19:00:14 by yabakhar         ###   ########.fr        #
+#    Updated: 2020/07/11 17:00:24 by yabakhar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
-FLAGS = -Wall -Werror -Wextra 
+FLAGS = -Wall  -Wextra 
 
 SRCS = 	cd.c\
 		ft_echo.c\
@@ -25,7 +25,11 @@ SRCS = 	cd.c\
 		suit_cd.c\
 		ft_fork.c\
 		ft_strspliti.c\
-		ft_env.c
+		ft_env.c\
+		get_next_line.c\
+		history.c\
+		read_fc.c\
+		fc_l.c\
 
 LIBFT = libft/libft.a
 

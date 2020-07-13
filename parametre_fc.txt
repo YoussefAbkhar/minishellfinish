@@ -1,0 +1,5 @@
+-l
+-e
+-n
+-s 7akma l3alam (les paramter)
+-r

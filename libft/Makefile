@@ -78,7 +78,7 @@ SRC	= ft_atoi.c\
 	  ft_aff_lst.c\
 	  ft_del.c\
 
-FLG = -Wall -Wextra -Werror
+FLG = -Wall -Wextra 
 
 OBJ = $(SRC:.c=.o)
 
