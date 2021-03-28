@@ -6,13 +6,13 @@
 #    By: yabakhar <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/16 19:55:13 by yabakhar          #+#    #+#              #
-#    Updated: 2020/07/11 17:00:24 by yabakhar         ###   ########.fr        #
+#    Updated: 2019/11/06 19:00:14 by yabakhar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
-FLAGS = -Wall  -Wextra 
+CFLAGS = -Wall -Werror -Wextra
 
 SRCS = 	cd.c\
 		ft_echo.c\
@@ -26,10 +26,7 @@ SRCS = 	cd.c\
 		ft_fork.c\
 		ft_strspliti.c\
 		ft_env.c\
-		get_next_line.c\
-		history.c\
-		read_fc.c\
-		fc_l.c\
+		main2.c
 
 LIBFT = libft/libft.a
 
@@ -39,7 +36,7 @@ all: $(NAME)
 
 $(NAME):$(OBJ) minishell.h
 	@make -C libft
-	@gcc $(FLAGS) $(SRCS) $(LIBFT) -o $(NAME)
+	@gcc $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 	@echo "\033[32m$(NAME) created\n\033[0m"
 
 clean:
